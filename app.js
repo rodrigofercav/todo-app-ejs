@@ -95,7 +95,7 @@ app.post("/", (req, res) => {
 
 //-- 404 Route (must be the last route)
 app.get('*', function(req, res){
-    res.status(404).render('errors/error404');
+    res.status(404).render('error404');
   });
   
 app.listen(3000, () => console.log('Server started on port 3000.'));
