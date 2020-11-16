@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+<div class="div-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Done At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% historyList.map((todoItem) => { %>
+            <tr>
+                <td><%= todoItem._id  %></th>
+                <td><%= todoItem.description %> </td>
+                <td><%= todoItem.createdAt %> </td>
+                <td><%= todoItem.doneAt %> </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include ('footer') %>

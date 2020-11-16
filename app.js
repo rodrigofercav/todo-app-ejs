@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 app.post("/checkItem", (req, res) => {
     Item.findOneAndUpdate(
         { _id: req.body.checkboxItem },
-        { status: true, doneAt: new Date() }, 
+        { status: true, doneAt: new Date() },
         null,
         (err, res) => {
             if (err) {
@@ -75,6 +75,19 @@ app.post("/", (req, res) => {
     });
     newItem.save();
     res.redirect("/");
+});
+
+app.get('/history', (req, res) => {
+    Item.find({ status: true }, (err, historyItems) => {
+        if (err) {
+            console.log(err);
+        } else {
+            //console.log(historyItems);
+            res.render("history", {
+                historyList: historyItems
+            });
+        }
+    }).sort({ 'doneAt': 'desc' });
 });
 
 //-- 404 Route (must be the last route)
