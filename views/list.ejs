@@ -4,6 +4,10 @@
     <h1><%= currentDate %></h1>
 </div>
 <div class="box">
+    <form class="item" action="/" method="post">
+        <input type="text" name="newTodo" placeholder="Insert a new to do..." autocomplete="off" required autofocus>
+        <button type="submit">+</button>
+    </form>
     <% todoList.map((todoItem) => { %>
     <form action="/checkItem" method="post">
         <div class="item">
@@ -12,11 +16,6 @@
         </div>
     </form>
     <% }) %>
-
-    <form class="item" action="/" method="post">
-        <input type="text" name="newTodo" placeholder="Insert a description..." autocomplete="off" required autofocus>
-        <button type="submit">+</button>
-    </form>
 </div>
 
 <%- include ('footer') %>
